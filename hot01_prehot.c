@@ -5,6 +5,7 @@ int main(void){
 
     char staffName[20], staffID[20], staffPosition[5], grade[5];
     float markT, markS, markP, markO, markTotal;
+    int loop;
 
     printf("\t\tWELCOME TO UMG KPI CALCULATION");
     printf("\n______________________");
@@ -82,6 +83,11 @@ int main(void){
             strcpy(grade, "B");}
         else{
             strcpy(grade, "A");}}
+
+    //convert string to uppercase
+    for(loop=0; staffPosition[loop]!='\0'; loop++){
+        if(staffPosition[loop]>='a' && staffPosition[loop]<='z'){
+            staffPosition[loop]=staffPosition[loop]-32;}}
 
     printf("\n________________________________________________________________");
     printf("\nName                                      : %s", staffName);
