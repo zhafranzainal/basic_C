@@ -23,19 +23,42 @@ int main(void){
     printf("Position, P (Permanent) or T (Trial)      : ");
     scanf(" %s", &staffPosition);
 
+    //prompt error
+    for(;;){
     printf("Enter your marks for Teaching    (0-25)   : ");
     scanf(" %f", &markT);
 
+    if(markT<=25){
+        break;}
+
+    printf("\n\nERROR: Mark exceed 25\n***Please try again\n\n");}
+
+    for(;;){
     printf("Enter your marks for Supervision (0-25)   : ");
     scanf(" %f", &markS);
 
+    if(markS<=25){
+        break;}
+
+    printf("\n\nERROR: Mark exceed 25\n***Please try again\n\n");}
+
+    for(;;){
     printf("Enter your marks for Publication (0-25)   : ");
     scanf(" %f", &markP);
 
+    if(markP<=25){
+        break;}
+
+    printf("\n\nERROR: Mark exceed 25\n***Please try again\n\n");}
+
+    for(;;){
     printf("Enter your marks for Others      (0-25)   : ");
     scanf(" %f", &markO);
 
-    printf("\n\nERROR: Mark exceed 25\n***Please try again\n\n");
+    if(markO<=25){
+        break;}
+
+    printf("\n\nERROR: Mark exceed 25\n***Please try again\n\n");}
 
     printf("\n________________________________________________________________");
     printf("\nName                                      : %s", staffName);
