@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(void){
 
@@ -59,6 +60,28 @@ int main(void){
         break;}
 
     printf("\n\nERROR: Mark exceed 25\n***Please try again\n\n");}
+
+    markTotal=markT+markS+markP+markO;
+
+    if(strcasecmp(staffPosition, "P") == 0){
+        if(markTotal<50){
+            strcpy(grade, "F");}
+        else if(markTotal<65){
+            strcpy(grade, "C");}
+        else if(markTotal<80){
+            strcpy(grade, "B");}
+        else{
+            strcpy(grade, "A");}}
+
+    else if(strcasecmp(staffPosition, "T") == 0){
+        if(markTotal<55){
+            strcpy(grade, "F");}
+        else if(markTotal<70){
+            strcpy(grade, "C");}
+        else if(markTotal<85){
+            strcpy(grade, "B");}
+        else{
+            strcpy(grade, "A");}}
 
     printf("\n________________________________________________________________");
     printf("\nName                                      : %s", staffName);
