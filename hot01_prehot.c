@@ -2,6 +2,9 @@
 
 int main(void){
 
+    char staffName[20], staffID[20], staffPosition[5];
+    float markT, markS, markP, markO;
+
     printf("\t\tWELCOME TO UMG KPI CALCULATION");
     printf("\n______________________");
     printf("\nINDICATOR:        ");
