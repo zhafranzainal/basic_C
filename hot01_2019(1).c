@@ -9,29 +9,37 @@ int main(void){
     printf("\n---------------------------------------------------");
 
     printf("\nInsert customer's name: ");
+    gets(custName);
 
-    printf("\nInsert customer's phone number: ");
+    printf("Insert customer's phone number: ");
+    gets(custNum);
 
-    printf("\nInsert customer's email: ");
+    printf("Insert customer's email: ");
+    gets(custEmail);
 
-    printf("\nChoose a package (1/2/3): ");
+    printf("Choose a package (1/2/3): ");
+    scanf(" %d", &packageNo);
 
-    printf("\nNumber of person (Adult): ");
+    printf("Number of person (Adult): ");
+    scanf(" %d", &personAdult);
 
-    printf("\nNumber of person (Child): ");
+    printf("Number of person (Child): ");
+    scanf(" %d", &personChild);
 
-    printf("\nChoose membership card (G=Gold, S=Silver, P=Platinum, N=None): ");
+    printf("Choose membership card (G=Gold, S=Silver, P=Platinum, N=None): ");
+    scanf(" %s", &ticketMember);
 
-    printf("\n\nTicket Info:");
+    printf("\nTicket Info:");
     printf("\n-----------------------------");
-    printf("\nName: ");
-    printf("\nPhone Number: ");
-    printf("\nPackage: ");
-    printf("\nTicket Price: RM");
+    printf("\nName: %s", custName);
+    printf("\nPhone Number: %s", custNum);
+    printf("\nPackage: %s", packageInfo);
+    printf("\nTicket Price: RM%.2f", ticketPrice);
 
     printf("\n\nExit system? (y/n): ");
+    scanf(" %s", &userExit);
 
-    printf("\n\nTotal Ticket Sales : RM \n");
+    printf("\nTotal Ticket Sales : RM %.2f\n", ticketSales);
 
 return 0;
 }
