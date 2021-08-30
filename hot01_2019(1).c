@@ -2,6 +2,10 @@
 
 int main(void){
 
+    char custName[50], custNum[20], custEmail[50], ticketMember[5], packageInfo[50], userExit[5];
+    int packageNo, personAdult, personChild;
+    float ticketPrice, ticketSales;
+
     printf("BUKIT GAMBANG WATER PARK RESERVATION SYSTEM");
     printf("\nPackage 1: 1 Day Water Park");
     printf("\nPackage 2: 1 Day Theme Park");
