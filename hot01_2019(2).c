@@ -2,42 +2,45 @@
 
 int main(void){
 
+    char personName[50], personIC[20], personAddress[50], spouse[5], householdGroup[50], userExit[5];
+    float incomeBasic, incomeAllowance, incomeSide, incomeBasicS, incomeAllowanceS, incomeSideS, incomeTax, householdIncome;
+
     printf("Personal Information");
     printf("\n--------------------");
 
     printf("\nName: ");
     gets(personName);
 
-    printf("\nIdentification Card: ");
+    printf("Identification Card: ");
     gets(personIC);
 
-    printf("\nAddress: ");
+    printf("Address: ");
     gets(personAddress);
 
-    printf("\n\nHousehold Income");
+    printf("\nHousehold Income");
     printf("\n----------------");
     printf("\nBasic Salary  : RM ");
     scanf(" %f", &incomeBasic);
 
-    printf("\nAllowance     : RM ");
+    printf("Allowance     : RM ");
     scanf(" %f", &incomeAllowance);
 
-    printf("\nSide Income   : RM ");
+    printf("Side Income   : RM ");
     scanf(" %f", &incomeSide);
 
-    printf("\n\nHousehold income from spouse? [y/n]: ");
+    printf("\nHousehold income from spouse? [y/n]: ");
     scanf(" %s", &spouse);
 
-    printf("\nBasic Salary (Spouse): RM ");
+    printf("Basic Salary (Spouse): RM ");
     scanf(" %f", &incomeBasicS);
 
-    printf("\nAllowance    (Spouse): RM ");
+    printf("Allowance    (Spouse): RM ");
     scanf(" %f", &incomeAllowanceS);
 
-    printf("\nSide Income  (Spouse): RM ");
+    printf("Side Income  (Spouse): RM ");
     scanf(" %f", &incomeSideS);
 
-    printf("\n\n-------------------------------");
+    printf("\n-------------------------------");
     printf("\nName: %s", personName);
     printf("\nTotal household income is RM %.2f", householdIncome);
     printf("\nYou are in %s group.", householdGroup);
@@ -46,8 +49,6 @@ int main(void){
     printf("\n-------------------------------");
     printf("\nExit Program? [y/n]: ");
     scanf(" %s", &userExit);
-
-    printf("\n");
 
 return 0;
 }
