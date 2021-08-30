@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(void){
 
@@ -31,14 +32,16 @@ int main(void){
     printf("\nHousehold income from spouse? [y/n]: ");
     scanf(" %s", &spouse);
 
-    printf("Basic Salary (Spouse): RM ");
-    scanf(" %f", &incomeBasicS);
+    if(strcasecmp(spouse, "Y") == 0){
 
-    printf("Allowance    (Spouse): RM ");
-    scanf(" %f", &incomeAllowanceS);
+        printf("Basic Salary (Spouse): RM ");
+        scanf(" %f", &incomeBasicS);
 
-    printf("Side Income  (Spouse): RM ");
-    scanf(" %f", &incomeSideS);
+        printf("Allowance    (Spouse): RM ");
+        scanf(" %f", &incomeAllowanceS);
+
+        printf("Side Income  (Spouse): RM ");
+        scanf(" %f", &incomeSideS);}
 
     printf("\n-------------------------------");
     printf("\nName: %s", personName);
