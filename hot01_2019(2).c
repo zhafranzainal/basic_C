@@ -45,6 +45,16 @@ int main(void){
 
     householdIncome=incomeAllowance+incomeAllowanceS+incomeBasic+incomeBasicS+incomeSide+incomeSideS;
 
+    if(householdIncome<3000){
+        strcpy(householdGroup, "B40");
+        incomeTax=householdIncome*0;}
+    else if(householdIncome<=6000){
+        strcpy(householdGroup, "M40");
+        incomeTax=householdIncome*0.03;}
+    else{
+        strcpy(householdGroup, "T20");
+        incomeTax=householdIncome*0.06;}
+
     printf("\n-------------------------------");
     printf("\nName: %s", personName);
     printf("\nTotal household income is RM %.2f", householdIncome);
