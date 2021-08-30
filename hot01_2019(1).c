@@ -35,11 +35,14 @@ int main(void){
     scanf(" %s", &ticketMember);
 
     if(packageNo==1){
-        strcpy(packageInfo, "1 Day Water Park");}
+        strcpy(packageInfo, "1 Day Water Park");
+        ticketPrice=(personAdult*100)+(personChild*80);}
     else if(packageNo==2){
-        strcpy(packageInfo, "1 Day Theme Park");}
+        strcpy(packageInfo, "1 Day Theme Park");
+        ticketPrice=(personAdult*120)+(personChild*100);}
     else{
-        strcpy(packageInfo, "1 Day Combo (Theme Park + Water Park)");}
+        strcpy(packageInfo, "1 Day Combo (Theme Park + Water Park)");
+        ticketPrice=(personAdult*160)+(personChild*120);}
 
     printf("\nTicket Info:");
     printf("\n-----------------------------");
