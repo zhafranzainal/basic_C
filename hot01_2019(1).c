@@ -44,6 +44,15 @@ int main(void){
         strcpy(packageInfo, "1 Day Combo (Theme Park + Water Park)");
         ticketPrice=(personAdult*160)+(personChild*120);}
 
+    if(strcasecmp(ticketMember, "G") == 0){
+        ticketPrice=ticketPrice*0.8;}
+    else if(strcasecmp(ticketMember, "S") == 0){
+        ticketPrice=ticketPrice*0.85;}
+    else if(strcasecmp(ticketMember, "P") == 0){
+        ticketPrice=ticketPrice*0.95;}
+    else{
+        ticketPrice=ticketPrice*1;}
+
     printf("\nTicket Info:");
     printf("\n-----------------------------");
     printf("\nName: %s", custName);
