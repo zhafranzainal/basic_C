@@ -4,7 +4,7 @@
 int main(void){
 
     char personName[50], personIC[20], personAddress[50], spouse[5], householdGroup[50], userExit[5];
-    float incomeBasic, incomeAllowance, incomeSide, incomeBasicS, incomeAllowanceS, incomeSideS, incomeTax, householdIncome;
+    float incomeBasic, incomeAllowance, incomeSide, incomeBasicS=0, incomeAllowanceS=0, incomeSideS=0, incomeTax, householdIncome;
 
     printf("Personal Information");
     printf("\n--------------------");
@@ -42,6 +42,8 @@ int main(void){
 
         printf("Side Income  (Spouse): RM ");
         scanf(" %f", &incomeSideS);}
+
+    householdIncome=incomeAllowance+incomeAllowanceS+incomeBasic+incomeBasicS+incomeSide+incomeSideS;
 
     printf("\n-------------------------------");
     printf("\nName: %s", personName);
