@@ -5,7 +5,7 @@ int main(void){
 
     char custName[50], custNum[20], custEmail[50], ticketMember[5], packageInfo[50], userExit[5], user[5]="y";
     int packageNo, personAdult, personChild, exit;
-    float ticketPrice, ticketSales;
+    float ticketPrice, ticketSales=0;
 
     printf("BUKIT GAMBANG WATER PARK RESERVATION SYSTEM");
     printf("\nPackage 1: 1 Day Water Park");
@@ -55,6 +55,8 @@ int main(void){
         ticketPrice=ticketPrice*0.95;}
     else{
         ticketPrice=ticketPrice*1;}
+
+    ticketSales+=ticketPrice;
 
     printf("\nTicket Info:");
     printf("\n-----------------------------");
