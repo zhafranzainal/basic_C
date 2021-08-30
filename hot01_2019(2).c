@@ -3,10 +3,15 @@
 
 int main(void){
 
-    char personName[50], personIC[20], personAddress[50], spouse[5], householdGroup[50], userExit[5];
+    int exit;
+    char personName[50], personIC[20], personAddress[50], spouse[5], householdGroup[50], userExit[5], user[5]="y";
     float incomeBasic, incomeAllowance, incomeSide, incomeBasicS=0, incomeAllowanceS=0, incomeSideS=0, incomeTax, householdIncome;
 
-    printf("Personal Information");
+    //do...while loop (begin)
+    do{
+    fflush(stdin);
+
+    printf("\nPersonal Information");
     printf("\n--------------------");
 
     printf("\nName: ");
@@ -64,6 +69,11 @@ int main(void){
     printf("\n-------------------------------");
     printf("\nExit Program? [y/n]: ");
     scanf(" %s", &userExit);
+
+    exit=strcasecmp(userExit, user);
+
+    //do...while loop (end)
+    }while(exit);
 
 return 0;
 }
