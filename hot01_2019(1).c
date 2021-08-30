@@ -3,8 +3,8 @@
 
 int main(void){
 
-    char custName[50], custNum[20], custEmail[50], ticketMember[5], packageInfo[50], userExit[5];
-    int packageNo, personAdult, personChild;
+    char custName[50], custNum[20], custEmail[50], ticketMember[5], packageInfo[50], userExit[5], user[5]="y";
+    int packageNo, personAdult, personChild, exit;
     float ticketPrice, ticketSales;
 
     printf("BUKIT GAMBANG WATER PARK RESERVATION SYSTEM");
@@ -12,6 +12,9 @@ int main(void){
     printf("\nPackage 2: 1 Day Theme Park");
     printf("\nPackage 3: 1 Day Combo (Theme Park + Water Park)");
     printf("\n---------------------------------------------------");
+
+    do{
+    fflush(stdin);
 
     printf("\nInsert customer's name: ");
     gets(custName);
@@ -62,6 +65,9 @@ int main(void){
 
     printf("\n\nExit system? (y/n): ");
     scanf(" %s", &userExit);
+
+    exit=strcasecmp(userExit, user);
+    }while(exit);
 
     printf("\nTotal Ticket Sales : RM %.2f\n", ticketSales);
 
