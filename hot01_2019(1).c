@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(void){
 
@@ -32,6 +33,13 @@ int main(void){
 
     printf("Choose membership card (G=Gold, S=Silver, P=Platinum, N=None): ");
     scanf(" %s", &ticketMember);
+
+    if(packageNo==1){
+        strcpy(packageInfo, "1 Day Water Park");}
+    else if(packageNo==2){
+        strcpy(packageInfo, "1 Day Theme Park");}
+    else{
+        strcpy(packageInfo, "1 Day Combo (Theme Park + Water Park)");}
 
     printf("\nTicket Info:");
     printf("\n-----------------------------");
