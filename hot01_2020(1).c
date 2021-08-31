@@ -4,7 +4,7 @@
 int main(void){
 
     char custName[50], custNum[20], tripPackage[5], userExit[5], user[5]="n";
-    float tripPrice, tripPay;
+    float tripPrice, tripPay=0;
     int custPax, exit;
 
     printf("Enter Name: ");
@@ -21,6 +21,8 @@ int main(void){
 
     //do...while loop (begin)
     do{
+    fflush(stdin);
+
     printf("\nTrip Package [A/B/C]: ");
     scanf(" %s", &tripPackage);
 
@@ -66,6 +68,8 @@ int main(void){
 
     else{
         tripPrice=custPax*120;}
+
+    tripPay+=tripPrice;
 
     printf("Your trip price for %d PAX: RM %.2f", custPax, tripPrice);
 
