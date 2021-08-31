@@ -3,9 +3,9 @@
 
 int main(void){
 
-    char custName[50], custNum[20], tripPackage[5], userExit[5];
+    char custName[50], custNum[20], tripPackage[5], userExit[5], user[5]="n";
     float tripPrice, tripPay;
-    int custPax;
+    int custPax, exit;
 
     printf("Enter Name: ");
     gets(custName);
@@ -19,6 +19,8 @@ int main(void){
     printf("\nTRIP B - Coral Island/Snorkeling Tour (4 sites)");
     printf("\nTRIP C - Fishing & Snorkeling\n");
 
+    //do...while loop (begin)
+    do{
     printf("\nTrip Package [A/B/C]: ");
     scanf(" %s", &tripPackage);
 
@@ -69,6 +71,10 @@ int main(void){
 
     printf("\n\nCheck for other trip packages? [y/n]: ");
     scanf(" %s", &userExit);
+
+    exit=strcasecmp(userExit, user);
+    //do...while loop (end)
+    }while(exit);
 
     printf("\nEnjoy the trip!");
     printf("\nTotal to pay is: RM %.2f\n", tripPay);
