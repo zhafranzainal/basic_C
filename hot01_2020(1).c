@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(void){
 
@@ -23,14 +24,17 @@ int main(void){
 
     printf("----------------------------");
 
-    printf("\nTRIP A - Round Tioman Island");
-    printf("\nVisit SIX (6) sites starts from Mukut Waterfall, Juara Village, Deep Bay, Reef Shark, Marine Park and Renggis Island.");
+    if(strcasecmp(tripPackage, "A") == 0){
+        printf("\nTRIP A - Round Tioman Island");
+        printf("\nVisit SIX (6) sites starts from Mukut Waterfall, Juara Village, Deep Bay, Reef Shark, Marine Park and Renggis Island.");}
 
-    printf("\nTRIP B - Coral Island/Snorkeling Tour");
-    printf("\nVisit FOUR (4) sites starts from Coral Island, Malang Rock, Marine Park and Renggis Island.");
+    else if(strcasecmp(tripPackage, "B") == 0){
+        printf("\nTRIP B - Coral Island/Snorkeling Tour");
+        printf("\nVisit FOUR (4) sites starts from Coral Island, Malang Rock, Marine Park and Renggis Island.");}
 
-    printf("\nTRIP C - Fishing & Snorkeling");
-    printf("\nEnjoy our fishing exploration at Malang Rock and Renggis Island.");
+    else{
+        printf("\nTRIP C - Fishing & Snorkeling");
+        printf("\nEnjoy our fishing exploration at Malang Rock and Renggis Island.");}
 
     printf("\n\nNo of person (4-12 pax): ");
     scanf( "%d", &custPax);
