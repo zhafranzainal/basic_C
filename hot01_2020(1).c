@@ -46,6 +46,25 @@ int main(void){
 
     printf("\nERROR: Falls below/exceeds pax limit that is allowed\n***Please try again");}
 
+    if(strcasecmp(tripPackage, "A") == 0){
+        if(custPax==4){
+            tripPrice=850;}
+        else if(custPax<=8){
+            tripPrice=1300;}
+        else{
+            tripPrice=2050;}}
+
+    else if(strcasecmp(tripPackage, "B") == 0){
+        if(custPax==4){
+            tripPrice=550;}
+        else if(custPax<=8){
+            tripPrice=850;}
+        else{
+            tripPrice=1350;}}
+
+    else{
+        tripPrice=custPax*120;}
+
     printf("Your trip price for %d PAX: RM %.2f", custPax, tripPrice);
 
     printf("\n\nCheck for other trip packages? [y/n]: ");
