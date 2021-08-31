@@ -36,8 +36,15 @@ int main(void){
         printf("\nTRIP C - Fishing & Snorkeling");
         printf("\nEnjoy our fishing exploration at Malang Rock and Renggis Island.");}
 
+    //prompt error
+    for(;;){
     printf("\n\nNo of person (4-12 pax): ");
     scanf( "%d", &custPax);
+
+    if(custPax>=4 && custPax<=12){
+        break;}
+
+    printf("\nERROR: Falls below/exceeds pax limit that is allowed\n***Please try again");}
 
     printf("Your trip price for %d PAX: RM %.2f", custPax, tripPrice);
 
