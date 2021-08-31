@@ -2,6 +2,10 @@
 
 int main(void){
 
+    char custName[50], custNum[20], tripPackage[5], userExit[5];
+    float tripPrice, tripPay;
+    int custPax;
+
     printf("Enter Name: ");
     gets(custName);
 
