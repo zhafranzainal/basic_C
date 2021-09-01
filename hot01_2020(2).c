@@ -29,8 +29,15 @@ int main(void){
     printf("\nEnter name                            : ");
     gets(custName);
 
+    //prompt error
+    for(;;){
     printf("Number of order                       : ");
     scanf(" %d", &orderTotal);
+
+    if(orderTotal<=5){
+        break;}
+
+    printf("\nERROR: This system can only take up to 5 orders per customer!\n***Please try again.\n\n");}
 
     printf("Order type? (1=Dine in, 0=Takeaway)   : ");
     scanf(" %d", &orderType);
