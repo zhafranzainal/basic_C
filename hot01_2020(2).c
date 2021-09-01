@@ -2,6 +2,10 @@
 
 int main(void){
 
+    char custName[50], orderFood[5], orderDrink[5];
+    int loop, orderTotal, orderType, orderPlastic;
+    float priceTotal;
+
     printf("Welcome to Nasi Kukus MyAbah Restaurant");
 
     printf("\n---------------------------------------");
@@ -24,26 +28,24 @@ int main(void){
     printf("\nEnter name                            : ");
     gets(custName);
 
-    printf("\nNumber of order                       : ");
+    printf("Number of order                       : ");
     scanf(" %d", &orderTotal);
 
-    printf("\nOrder type? (1=Dine in, 0=Takeaway)   : ");
+    printf("Order type? (1=Dine in, 0=Takeaway)   : ");
     scanf(" %d", &orderType);
 
-    printf("\nNeed plastic bag? (1=Yes, 0=No)       : ");
+    printf("Need plastic bag? (1=Yes, 0=No)       : ");
     scanf(" %d", &orderPlastic);
-
-    printf("\n");
 
     printf("\nOrder #%d", loop);
 
     printf("\nMenu  : ");
     scanf(" %s", &orderFood);
 
-    printf("\nDrink : ");
+    printf("Drink : ");
     scanf(" %s", &orderDrink);
 
-    printf("\n\n---------------------------");
+    printf("\n---------------------------");
     printf("\nCustomer name: %s", custName);
 
     printf("\nDine in.");
