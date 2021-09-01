@@ -39,13 +39,14 @@ int main(void){
         printf("Need plastic bag? (1=Yes, 0=No)       : ");
         scanf(" %d", &orderPlastic);}
 
-    printf("\nOrder #%d", loop);
+    for(loop=0; loop<orderTotal; loop++){
+        printf("\nOrder #%d", loop+1);
 
-    printf("\nMenu  : ");
-    scanf(" %s", &orderFood);
+        printf("\nMenu  : ");
+        scanf(" %s", &orderFood);
 
-    printf("Drink : ");
-    scanf(" %s", &orderDrink);
+        printf("Drink : ");
+        scanf(" %s", &orderDrink);}
 
     printf("\n---------------------------");
     printf("\nCustomer name: %s", custName);
