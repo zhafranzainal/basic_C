@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(void){
 
-    char custName[50], orderFood[5], orderDrink[5];
+    char custName[50], orderFood[5], orderDrink[5], serviceMode[50];
     int loop, orderTotal, orderType, orderPlastic;
     float priceTotal;
 
@@ -36,8 +37,12 @@ int main(void){
 
     if(orderType==0){
 
+        strcpy(serviceMode, "Takeaway");
         printf("Need plastic bag? (1=Yes, 0=No)       : ");
         scanf(" %d", &orderPlastic);}
+
+    else{
+        strcpy(serviceMode, "Dine-in");}
 
     for(loop=0; loop<orderTotal; loop++){
         printf("\nOrder #%d", loop+1);
@@ -51,8 +56,7 @@ int main(void){
     printf("\n---------------------------");
     printf("\nCustomer name: %s", custName);
 
-    printf("\nDine in.");
-    printf("\nTake away.");
+    printf("\n%s.", serviceMode);
 
     printf("\n\nTotal to pay is: RM%.2f", priceTotal);
     printf("\nEnjoy your meal!\n");
