@@ -22,27 +22,34 @@ int main(void){
     printf("\n---------------------------------------\n");
 
     printf("\nEnter name                            : ");
+    gets(custName);
 
     printf("\nNumber of order                       : ");
+    scanf(" %d", &orderTotal);
 
     printf("\nOrder type? (1=Dine in, 0=Takeaway)   : ");
+    scanf(" %d", &orderType);
 
     printf("\nNeed plastic bag? (1=Yes, 0=No)       : ");
+    scanf(" %d", &orderPlastic);
 
     printf("\n");
 
-    printf("\nOrder #1");
+    printf("\nOrder #%d", loop);
+
     printf("\nMenu  : ");
+    scanf(" %s", &orderFood);
 
     printf("\nDrink : ");
+    scanf(" %s", &orderDrink);
 
     printf("\n\n---------------------------");
-    printf("\nCustomer name: ");
+    printf("\nCustomer name: %s", custName);
 
     printf("\nDine in.");
     printf("\nTake away.");
 
-    printf("\n\nTotal to pay is: RM");
+    printf("\n\nTotal to pay is: RM%.2f", priceTotal);
     printf("\nEnjoy your meal!\n");
 
 return 0;
