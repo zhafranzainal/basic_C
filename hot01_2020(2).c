@@ -34,8 +34,10 @@ int main(void){
     printf("Order type? (1=Dine in, 0=Takeaway)   : ");
     scanf(" %d", &orderType);
 
-    printf("Need plastic bag? (1=Yes, 0=No)       : ");
-    scanf(" %d", &orderPlastic);
+    if(orderType==0){
+
+        printf("Need plastic bag? (1=Yes, 0=No)       : ");
+        scanf(" %d", &orderPlastic);}
 
     printf("\nOrder #%d", loop);
 
