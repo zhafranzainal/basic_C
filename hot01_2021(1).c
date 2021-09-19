@@ -82,12 +82,17 @@ int main(void){
             cashbackCash=5;}}
 
     cashbackCoinRM=cashbackCoin/1000;
+    priceMYR=priceTotal-priceDiscount;
 
     //decision cashback applicable
     if(strcasecmp(shopChannel, "Y") == 0){
         printf("\n Use %.2f your coin for a RM%.2f discount and %.2f cashback for this purchasing? [Y=Yes, N=No]: ", cashbackCoin, cashbackCoinRM, cashbackCash);
         scanf(" %s", &cashbackUse);
-        strcpy(shopDescription, "Cash Back Channel/Shop Pi");}
+        strcpy(shopDescription, "Cash Back Channel/Shop Pi");
+
+        //decision cashback use
+        if(strcasecmp(cashbackUse, "Y") == 0){
+            priceMYR=priceTotal-priceDiscount-cashbackCash-cashbackCoinRM;}}
 
     else{
         printf("\n Not applicable for collecting coins and cashback\n");
