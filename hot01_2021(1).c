@@ -4,7 +4,7 @@
 int main(void){
 
     char shopChannel[5], shopStore[5], itemCode[5], cashbackUse[5], shopDescription[50], itemName[50];
-    float cashbackCoin, cashbackCoinRM, cashbackCash, priceTotal, priceDiscount, priceMYR, priceBND, itemPrice;
+    float cashbackCoin, cashbackCoinRM, cashbackCash, priceTotal, priceDiscount=0, priceMYR, priceBND, itemPrice;
     int itemQuantity, userExit;
 
     printf("\n Via Cash Back Channel? [Y=Yes, N=No]     : ");
@@ -25,6 +25,25 @@ int main(void){
     printf(" Enter unit of purchased item         : ");
     scanf(" %d", &itemQuantity);
 
+    //decision itemCode
+    if(strcasecmp(itemCode, "A") == 0){
+        strcpy(itemName, "Sakura Dining Set");
+        itemPrice=1500;}
+
+    else if(strcasecmp(itemCode, "B") == 0){
+        strcpy(itemName, "Organic Cotton Bedding Set");
+        itemPrice=550;
+
+        //calculate go green discount
+        if(itemQuantity>=4){
+            priceDiscount=itemPrice*itemQuantity*0.15;}}
+
+    else{
+        strcpy(itemName, "Smart TV");
+        itemPrice=1999;}
+
+    priceTotal=itemPrice*itemQuantity;
+
     //decision cashback applicable
     if(strcasecmp(shopChannel, "Y") == 0){
         printf("\n Use %.2f your coin for a RM%.2f discount and %.2f cashback for this purchasing? [Y=Yes, N=No]: ", cashbackCoin, cashbackCoinRM, cashbackCash);
@@ -34,21 +53,6 @@ int main(void){
     else{
         printf("\n Not applicable for collecting coins and cashback\n");
         strcpy(shopDescription, "Not via Cash Back Channel/Shop Pi");}
-
-    //decision itemCode
-    if(strcasecmp(itemCode, "A") == 0){
-        strcpy(itemName, "Sakura Dining Set");
-        itemPrice=1500;}
-
-    else if(strcasecmp(itemCode, "B") == 0){
-        strcpy(itemName, "Organic Cotton Bedding Set");
-        itemPrice=550;}
-
-    else{
-        strcpy(itemName, "Smart TV");
-        itemPrice=1999;}
-
-    priceTotal=itemPrice*itemQuantity;
 
     printf("\n Shopping channel and shop    : %s", shopDescription);
     printf("\n Purchased item               : %s", itemName);
