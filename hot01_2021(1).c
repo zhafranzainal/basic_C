@@ -98,6 +98,9 @@ int main(void){
         printf("\n Not applicable for collecting coins and cashback\n");
         strcpy(shopDescription, "Not via Cash Back Channel/Shop Pi");}
 
+    //convert MYR to BND
+    priceBND=priceMYR/3.07;
+
     printf("\n Shopping channel and shop    : %s", shopDescription);
     printf("\n Purchased item               : %s", itemName);
     printf("\n Number of unit               : %d", itemQuantity);
