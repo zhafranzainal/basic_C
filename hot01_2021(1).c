@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(void){
 
@@ -24,10 +25,13 @@ int main(void){
     printf(" Enter unit of purchased item         : ");
     scanf(" %d", &itemQuantity);
 
-    printf("\n Use %.2f your coin for a RM%.2f discount and %.2f cashback for this purchasing? [Y=Yes, N=No]: ", cashbackCoin, cashbackCoinRM, cashbackCash);
-    scanf(" %s", &cashbackUse);
+    //decision cashback applicable
+    if(strcasecmp(shopChannel, "Y") == 0){
+        printf("\n Use %.2f your coin for a RM%.2f discount and %.2f cashback for this purchasing? [Y=Yes, N=No]: ", cashbackCoin, cashbackCoinRM, cashbackCash);
+        scanf(" %s", &cashbackUse);}
 
-    printf("\n Not applicable for collecting coins and cashback\n");
+    else{
+        printf("\n Not applicable for collecting coins and cashback\n");}
 
     printf("\n Shopping channel and shop    : %s", shopDescription);
     printf("\n Purchased item               : %s", itemName);
