@@ -28,10 +28,12 @@ int main(void){
     //decision cashback applicable
     if(strcasecmp(shopChannel, "Y") == 0){
         printf("\n Use %.2f your coin for a RM%.2f discount and %.2f cashback for this purchasing? [Y=Yes, N=No]: ", cashbackCoin, cashbackCoinRM, cashbackCash);
-        scanf(" %s", &cashbackUse);}
+        scanf(" %s", &cashbackUse);
+        strcpy(shopDescription, "Cash Back Channel/Shop Pi");}
 
     else{
-        printf("\n Not applicable for collecting coins and cashback\n");}
+        printf("\n Not applicable for collecting coins and cashback\n");
+        strcpy(shopDescription, "Not via Cash Back Channel/Shop Pi");}
 
     printf("\n Shopping channel and shop    : %s", shopDescription);
     printf("\n Purchased item               : %s", itemName);
