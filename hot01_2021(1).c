@@ -4,7 +4,7 @@
 int main(void){
 
     char shopChannel[5], shopStore[5], itemCode[5], cashbackUse[5], shopDescription[50], itemName[50];
-    float cashbackCoin, cashbackCoinRM, cashbackCash, priceTotal, priceDiscount=0, priceMYR, priceBND, itemPrice;
+    float cashbackCoin=0, cashbackCoinRM, cashbackCash=0, priceTotal, priceDiscount=0, priceMYR, priceBND, itemPrice;
     int itemQuantity, userExit;
 
     printf("\n Via Cash Back Channel? [Y=Yes, N=No]     : ");
@@ -43,6 +43,45 @@ int main(void){
         itemPrice=1999;}
 
     priceTotal=itemPrice*itemQuantity;
+
+    //calculate cashback
+    if(strcasecmp(shopStore, "S") == 0){
+
+        if(priceTotal>=500 && priceTotal<=1000){
+            cashbackCoin=priceTotal*2;
+            cashbackCash=1.5;}
+
+        else if(priceTotal<=1500){
+            cashbackCoin=priceTotal*4;
+            cashbackCash=2.5;}
+
+        else if(priceTotal<=2000){
+            cashbackCoin=priceTotal*6;
+            cashbackCash=3.5;}
+
+        else{
+            cashbackCoin=priceTotal*8;
+            cashbackCash=4.5;}}
+
+    else if(strcasecmp(shopStore, "F") == 0){
+
+        if(priceTotal>=500 && priceTotal<=1000){
+            cashbackCoin=priceTotal*1.5;
+            cashbackCash=2;}
+
+        else if(priceTotal<=1500){
+            cashbackCoin=priceTotal*3.5;
+            cashbackCash=3;}
+
+        else if(priceTotal<=2000){
+            cashbackCoin=priceTotal*5.5;
+            cashbackCash=4;}
+
+        else{
+            cashbackCoin=priceTotal*7.5;
+            cashbackCash=5;}}
+
+    cashbackCoinRM=cashbackCoin/1000;
 
     //decision cashback applicable
     if(strcasecmp(shopChannel, "Y") == 0){
