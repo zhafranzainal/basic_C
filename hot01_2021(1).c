@@ -7,6 +7,10 @@ int main(void){
     float cashbackCoin=0, cashbackCoinRM, cashbackCash=0, priceTotal, priceDiscount=0, priceMYR, priceBND, itemPrice;
     int itemQuantity, userExit;
 
+    //do...while loop (begin)
+    do{
+    fflush(stdin);
+
     printf("\n Via Cash Back Channel? [Y=Yes, N=No]     : ");
     scanf(" %s", &shopChannel);
 
@@ -111,6 +115,9 @@ int main(void){
 
     printf("\n\n Continue? [1=Next user, 2=Exit]          : ");
     scanf(" %d", &userExit);
+
+    //do...while loop (end)
+    }while(userExit==1);
 
 return 0;
 }
