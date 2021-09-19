@@ -35,6 +35,16 @@ int main(void){
         printf("\n Not applicable for collecting coins and cashback\n");
         strcpy(shopDescription, "Not via Cash Back Channel/Shop Pi");}
 
+    //decision itemCode
+    if(strcasecmp(itemCode, "A") == 0){
+        strcpy(itemName, "Sakura Dining Set");}
+
+    else if(strcasecmp(itemCode, "B") == 0){
+        strcpy(itemName, "Organic Cotton Bedding Set");}
+
+    else{
+        strcpy(itemName, "Smart TV");}
+
     printf("\n Shopping channel and shop    : %s", shopDescription);
     printf("\n Purchased item               : %s", itemName);
     printf("\n Number of unit               : %d", itemQuantity);
