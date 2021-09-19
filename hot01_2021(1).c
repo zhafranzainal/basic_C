@@ -4,7 +4,7 @@
 int main(void){
 
     char shopChannel[5], shopStore[5], itemCode[5], cashbackUse[5], shopDescription[50], itemName[50];
-    float cashbackCoin, cashbackCoinRM, cashbackCash, priceTotal, priceDiscount, priceMYR, priceBND;
+    float cashbackCoin, cashbackCoinRM, cashbackCash, priceTotal, priceDiscount, priceMYR, priceBND, itemPrice;
     int itemQuantity, userExit;
 
     printf("\n Via Cash Back Channel? [Y=Yes, N=No]     : ");
@@ -37,13 +37,18 @@ int main(void){
 
     //decision itemCode
     if(strcasecmp(itemCode, "A") == 0){
-        strcpy(itemName, "Sakura Dining Set");}
+        strcpy(itemName, "Sakura Dining Set");
+        itemPrice=1500;}
 
     else if(strcasecmp(itemCode, "B") == 0){
-        strcpy(itemName, "Organic Cotton Bedding Set");}
+        strcpy(itemName, "Organic Cotton Bedding Set");
+        itemPrice=550;}
 
     else{
-        strcpy(itemName, "Smart TV");}
+        strcpy(itemName, "Smart TV");
+        itemPrice=1999;}
+
+    priceTotal=itemPrice*itemQuantity;
 
     printf("\n Shopping channel and shop    : %s", shopDescription);
     printf("\n Purchased item               : %s", itemName);
