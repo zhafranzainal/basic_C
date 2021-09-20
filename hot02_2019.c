@@ -35,6 +35,11 @@ int main(void){
     for(loop=0; loop<orderTotal; loop++){
         printf("\n%-20s %-15d %-15d %-15d %.2f", custName[loop], cookieTN[loop], cookieKK[loop], cookieTC[loop], payment[loop]);}
 
+    for(loop=0; loop<orderTotal; loop++){
+        cookieTN_all+=cookieTN[loop];
+        cookieKK_all+=cookieKK[loop];
+        cookieTC_all+=cookieTC[loop];}
+
     printf("\n\n========================================");
     printf("\nTotal Tart Nenas  : %d", cookieTN_all);
     printf("\nTotal Kuih Kapit  : %d", cookieKK_all);
