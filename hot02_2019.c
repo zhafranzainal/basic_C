@@ -5,6 +5,7 @@
 
 //Function Declaration (Prototype)
 int getOrderInput(char orderMonth[20], char custName[MAX][LENGTH], int cookieTN[], int cookieKK[], int cookieTC[]);
+float calculatePayment(int loop, int cookieTN[MAX], int cookieKK[MAX], int cookieTC[MAX]);
 
 int main(void){
 
@@ -23,9 +24,9 @@ int main(void){
     //Function Calling: getOrderInput
     orderTotal=getOrderInput(orderMonth, custName, cookieTN, cookieKK, cookieTC);
 
-    //Function Definition: calculatePayment
+    //Function Calling: calculatePayment
     for(loop=0; loop<orderTotal; loop++){
-        payment[loop]=(30*cookieTN[loop])+(18*cookieKK[loop])+(28*cookieTC[loop]);}
+        payment[loop]=calculatePayment(loop, cookieTN, cookieKK, cookieTC);}
 
     printf("\nOrder for month : %s", orderMonth);
     printf("\nCustomer\t Tart Nenas\t Kuih Kapit\t Tart Coklat\t Payment(RM)");
@@ -70,3 +71,12 @@ int getOrderInput(char orderMonth[20], char custName[MAX][LENGTH], int cookieTN[
         scanf("%d %d %d", &cookieTN[loop], &cookieKK[loop], &cookieTC[loop]);}
 
     return orderTotal;}
+
+//Function Definition: calculatePayment
+float calculatePayment(int loop, int cookieTN[MAX], int cookieKK[MAX], int cookieTC[MAX]){
+
+    float payment;
+
+    payment=(30*cookieTN[loop])+(18*cookieKK[loop])+(28*cookieTC[loop]);
+
+    return payment;}
