@@ -4,6 +4,9 @@
 #define LENGTH 50
 
 //Function Declaration (Prototype)
+int getOrderInput(char orderMonth[20], char custName[MAX][LENGTH], int cookieTN[], int cookieKK[], int cookieTC[]);
+float calculatePayment(int loop, int cookieTN[MAX], int cookieKK[MAX], int cookieTC[MAX]);
+void calculateProfit(int orderTotal, float payment[MAX], float* totalProfit);
 
 int main(void){
 
@@ -19,19 +22,12 @@ int main(void){
     printf("\nWhich month order? ");
     scanf(" %s", &orderMonth);
 
-    //Function Definition: getOrderInput
-    printf("How many orders for month %s? ", orderMonth);
-    scanf(" %d", &orderTotal);
+    //Function Calling: getOrderInput
+    orderTotal=getOrderInput(orderMonth, custName, cookieTN, cookieKK, cookieTC);
 
+    //Function Calling: calculatePayment
     for(loop=0; loop<orderTotal; loop++){
-        printf("\nCustomer %d name: ", loop+1);
-        scanf(" %[^\n]s", &custName[loop]);
-        printf("Tart Nenas, Kuih Kapit and Tart Coklat orders (separate each input by space) :\n");
-        scanf("%d %d %d", &cookieTN[loop], &cookieKK[loop], &cookieTC[loop]);}
-
-    //Function Definition: calculatePayment
-    for(loop=0; loop<orderTotal; loop++){
-        payment[loop]=(30*cookieTN[loop])+(18*cookieKK[loop])+(28*cookieTC[loop]);}
+        payment[loop]=calculatePayment(loop, cookieTN, cookieKK, cookieTC);}
 
     printf("\nOrder for month : %s", orderMonth);
     printf("\nCustomer\t Tart Nenas\t Kuih Kapit\t Tart Coklat\t Payment(RM)");
@@ -44,12 +40,8 @@ int main(void){
         cookieKK_all+=cookieKK[loop];
         cookieTC_all+=cookieTC[loop];}
 
-    //Function Definition: calculateProfit
-    for(loop=0; loop<orderTotal; loop++){
-        totalPayment+=payment[loop];}
-
-    totalCost=totalPayment/1.2;
-    totalProfit=totalPayment-totalCost;
+    //Function Calling: calculateProfit
+    calculateProfit(orderTotal, payment, &totalProfit);
 
     printf("\n\n========================================");
     printf("\nTotal Tart Nenas  : %d", cookieTN_all);
@@ -60,3 +52,40 @@ int main(void){
 
 return 0;
 }
+
+//Function Definition: getOrderInput
+int getOrderInput(char orderMonth[20], char custName[MAX][LENGTH], int cookieTN[], int cookieKK[], int cookieTC[]){
+
+    int loop, orderTotal;
+
+    printf("How many orders for month %s? ", orderMonth);
+    scanf(" %d", &orderTotal);
+
+    for(loop=0; loop<orderTotal; loop++){
+        printf("\nCustomer %d name: ", loop+1);
+        scanf(" %[^\n]s", &custName[loop]);
+        printf("Tart Nenas, Kuih Kapit and Tart Coklat orders (separate each input by space) :\n");
+        scanf("%d %d %d", &cookieTN[loop], &cookieKK[loop], &cookieTC[loop]);}
+
+    return orderTotal;}
+
+//Function Definition: calculatePayment
+float calculatePayment(int loop, int cookieTN[MAX], int cookieKK[MAX], int cookieTC[MAX]){
+
+    float payment;
+
+    payment=(30*cookieTN[loop])+(18*cookieKK[loop])+(28*cookieTC[loop]);
+
+    return payment;}
+
+//Function Definition: calculateProfit
+void calculateProfit(int orderTotal, float payment[MAX], float* totalProfit){
+
+    int loop;
+    float totalPayment, totalCost;
+
+    for(loop=0; loop<orderTotal; loop++){
+        totalPayment+=payment[loop];}
+
+    totalCost=totalPayment/1.2;
+    *totalProfit=totalPayment-totalCost;}
