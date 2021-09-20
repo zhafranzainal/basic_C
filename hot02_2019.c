@@ -2,6 +2,10 @@
 
 int main(void){
 
+    int orderTotal, cookieTN, cookieKK, cookieTC, cookieTN_all=0, cookieKK_all=0, cookieTC_all=0;
+    float payment, totalProfit;
+    char orderMonth[20], custName[50];
+
     printf("\tVIRAL COOKIES COMPANY");
     printf("\n\tMONTHLY COOKIES ORDER REPORT");
     printf("\n\tTART NENAS || KUIH KAPIT || TART COKLAT");
@@ -10,13 +14,13 @@ int main(void){
     printf("\nWhich month order? ");
     scanf(" %s", &orderMonth);
 
-    printf("\nHow many orders for month %s? ", orderMonth);
+    printf("How many orders for month %s? ", orderMonth);
     scanf(" %d", &orderTotal);
 
-    printf("\n\nCustomer 1 name: ");
+    printf("\nCustomer 1 name: ");
     scanf(" %[^\n]s", &custName);
 
-    printf("\nTart Nenas, Kuih Kapit and Tart Coklat orders (separate each input by space) :\n");
+    printf("Tart Nenas, Kuih Kapit and Tart Coklat orders (separate each input by space) :\n");
     scanf("%d %d %d", &cookieTN, &cookieKK, &cookieTC);
 
     printf("\nOrder for month : %s", orderMonth);
