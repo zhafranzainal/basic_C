@@ -23,6 +23,8 @@ int main(void){
     printf("Tart Nenas, Kuih Kapit and Tart Coklat orders (separate each input by space) :\n");
     scanf("%d %d %d", &cookieTN, &cookieKK, &cookieTC);
 
+    payment=(30*cookieTN)+(18*cookieKK)+(28*cookieTC);
+
     printf("\nOrder for month : %s", orderMonth);
     printf("\nCustomer\t Tart Nenas\t Kuih Kapit\t Tart Coklat\t Payment(RM)");
 
