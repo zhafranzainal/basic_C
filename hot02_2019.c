@@ -1,10 +1,13 @@
 #include <stdio.h>
 
+#define MAX 10
+#define LENGTH 50
+
 int main(void){
 
-    int orderTotal, cookieTN, cookieKK, cookieTC, cookieTN_all=0, cookieKK_all=0, cookieTC_all=0;
-    float payment, totalProfit;
-    char orderMonth[20], custName[50];
+    int loop, orderTotal, cookieTN[MAX], cookieKK[MAX], cookieTC[MAX], cookieTN_all=0, cookieKK_all=0, cookieTC_all=0;
+    float payment[MAX], totalProfit;
+    char orderMonth[20], custName[MAX][LENGTH];
 
     printf("\tVIRAL COOKIES COMPANY");
     printf("\n\tMONTHLY COOKIES ORDER REPORT");
@@ -17,18 +20,20 @@ int main(void){
     printf("How many orders for month %s? ", orderMonth);
     scanf(" %d", &orderTotal);
 
-    printf("\nCustomer 1 name: ");
-    scanf(" %[^\n]s", &custName);
+    for(loop=0; loop<orderTotal; loop++){
+        printf("\nCustomer %d name: ", loop+1);
+        scanf(" %[^\n]s", &custName[loop]);
+        printf("Tart Nenas, Kuih Kapit and Tart Coklat orders (separate each input by space) :\n");
+        scanf("%d %d %d", &cookieTN[loop], &cookieKK[loop], &cookieTC[loop]);}
 
-    printf("Tart Nenas, Kuih Kapit and Tart Coklat orders (separate each input by space) :\n");
-    scanf("%d %d %d", &cookieTN, &cookieKK, &cookieTC);
-
-    payment=(30*cookieTN)+(18*cookieKK)+(28*cookieTC);
+    for(loop=0; loop<orderTotal; loop++){
+        payment[loop]=(30*cookieTN[loop])+(18*cookieKK[loop])+(28*cookieTC[loop]);}
 
     printf("\nOrder for month : %s", orderMonth);
     printf("\nCustomer\t Tart Nenas\t Kuih Kapit\t Tart Coklat\t Payment(RM)");
 
-    printf("\n%-20s %-15d %-15d %-15d %.2f", custName, cookieTN, cookieKK, cookieTC, payment);
+    for(loop=0; loop<orderTotal; loop++){
+        printf("\n%-20s %-15d %-15d %-15d %.2f", custName[loop], cookieTN[loop], cookieKK[loop], cookieTC[loop], payment[loop]);}
 
     printf("\n\n========================================");
     printf("\nTotal Tart Nenas  : %d", cookieTN_all);
