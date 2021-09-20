@@ -6,6 +6,7 @@
 //Function Declaration (Prototype)
 int getOrderInput(char orderMonth[20], char custName[MAX][LENGTH], int cookieTN[], int cookieKK[], int cookieTC[]);
 float calculatePayment(int loop, int cookieTN[MAX], int cookieKK[MAX], int cookieTC[MAX]);
+void calculateProfit(int orderTotal, float payment[MAX], float* totalProfit);
 
 int main(void){
 
@@ -39,12 +40,8 @@ int main(void){
         cookieKK_all+=cookieKK[loop];
         cookieTC_all+=cookieTC[loop];}
 
-    //Function Definition: calculateProfit
-    for(loop=0; loop<orderTotal; loop++){
-        totalPayment+=payment[loop];}
-
-    totalCost=totalPayment/1.2;
-    totalProfit=totalPayment-totalCost;
+    //Function Calling: calculateProfit
+    calculateProfit(orderTotal, payment, &totalProfit);
 
     printf("\n\n========================================");
     printf("\nTotal Tart Nenas  : %d", cookieTN_all);
@@ -80,3 +77,15 @@ float calculatePayment(int loop, int cookieTN[MAX], int cookieKK[MAX], int cooki
     payment=(30*cookieTN[loop])+(18*cookieKK[loop])+(28*cookieTC[loop]);
 
     return payment;}
+
+//Function Definition: calculateProfit
+void calculateProfit(int orderTotal, float payment[MAX], float* totalProfit){
+
+    int loop;
+    float totalPayment, totalCost;
+
+    for(loop=0; loop<orderTotal; loop++){
+        totalPayment+=payment[loop];}
+
+    totalCost=totalPayment/1.2;
+    *totalProfit=totalPayment-totalCost;}
