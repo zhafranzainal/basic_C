@@ -3,6 +3,8 @@
 #define MAX 10
 #define LENGTH 50
 
+//Function Declaration (Prototype)
+
 int main(void){
 
     int loop, orderTotal, cookieTN[MAX], cookieKK[MAX], cookieTC[MAX], cookieTN_all=0, cookieKK_all=0, cookieTC_all=0;
@@ -17,6 +19,7 @@ int main(void){
     printf("\nWhich month order? ");
     scanf(" %s", &orderMonth);
 
+    //Function Definition: getOrderInput
     printf("How many orders for month %s? ", orderMonth);
     scanf(" %d", &orderTotal);
 
@@ -26,6 +29,7 @@ int main(void){
         printf("Tart Nenas, Kuih Kapit and Tart Coklat orders (separate each input by space) :\n");
         scanf("%d %d %d", &cookieTN[loop], &cookieKK[loop], &cookieTC[loop]);}
 
+    //Function Definition: calculatePayment
     for(loop=0; loop<orderTotal; loop++){
         payment[loop]=(30*cookieTN[loop])+(18*cookieKK[loop])+(28*cookieTC[loop]);}
 
@@ -40,6 +44,7 @@ int main(void){
         cookieKK_all+=cookieKK[loop];
         cookieTC_all+=cookieTC[loop];}
 
+    //Function Definition: calculateProfit
     for(loop=0; loop<orderTotal; loop++){
         totalPayment+=payment[loop];}
 
