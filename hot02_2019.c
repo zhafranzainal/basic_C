@@ -6,7 +6,7 @@
 int main(void){
 
     int loop, orderTotal, cookieTN[MAX], cookieKK[MAX], cookieTC[MAX], cookieTN_all=0, cookieKK_all=0, cookieTC_all=0;
-    float payment[MAX], totalProfit;
+    float payment[MAX], totalProfit=0, totalPayment=0, totalCost=0;
     char orderMonth[20], custName[MAX][LENGTH];
 
     printf("\tVIRAL COOKIES COMPANY");
@@ -39,6 +39,12 @@ int main(void){
         cookieTN_all+=cookieTN[loop];
         cookieKK_all+=cookieKK[loop];
         cookieTC_all+=cookieTC[loop];}
+
+    for(loop=0; loop<orderTotal; loop++){
+        totalPayment+=payment[loop];}
+
+    totalCost=totalPayment/1.2;
+    totalProfit=totalPayment-totalCost;
 
     printf("\n\n========================================");
     printf("\nTotal Tart Nenas  : %d", cookieTN_all);
