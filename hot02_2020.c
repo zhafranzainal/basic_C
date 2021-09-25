@@ -1,9 +1,11 @@
 #include <stdio.h>
 
+#define MAX 5
+
 int main(void){
 
-    float orderPrice, priceCOD, priceOld, discount, priceNew, riderPayment, totalPrice, totalPayment;
-    int custTotal, orderTime, orderDistance;
+    float orderPrice[MAX], priceCOD[MAX], priceOld[MAX], discount[MAX], priceNew[MAX], riderPayment[MAX], totalPrice, totalPayment;
+    int loop, custTotal, orderTime[MAX], orderDistance[MAX];
     char riderName[50], riderID[10];
 
     printf(" How many customer to enter? ");
@@ -17,34 +19,40 @@ int main(void){
     printf(" Enter rider ID                       : ");
     gets(riderID);
 
-    printf("\n Customer #1");
+    for(loop=0;loop<custTotal;loop++){
 
-    printf("\n Enter pick up time (24hrs format)    : ");
-    scanf(" %d", &orderTime);
+        printf("\n Customer #%d", loop+1);
 
-    printf(" Enter distance                       : ");
-    scanf(" %d", &orderDistance);
+        printf("\n Enter pick up time (24hrs format)    : ");
+        scanf(" %d", &orderTime[loop]);
 
-    printf(" Enter food price                     : ");
-    scanf(" %f", &orderPrice);
+        printf(" Enter distance                       : ");
+        scanf(" %d", &orderDistance[loop]);
 
-    priceCOD=orderDistance*0.50;
-    priceOld=priceCOD+orderPrice;
+        printf(" Enter food price                     : ");
+        scanf(" %f", &orderPrice[loop]);}
 
-    if(orderTime>=900 && orderTime<=1100){
-        discount=5;}
+    for(loop=0;loop<custTotal;loop++){
+        priceCOD[loop]=orderDistance[loop]*0.50;
+        priceOld[loop]=priceCOD[loop]+orderPrice[loop];}
 
-    else if(orderTime>=1500 && orderTime<=1600){
-        discount=6;}
+    for(loop=0;loop<custTotal;loop++){
 
-    else if(orderTime>=2300 && orderTime<=2400 || orderTime==0){
-        discount=8.5;}
+        if(orderTime[loop]>=900 && orderTime[loop]<=1100){
+            discount[loop]=5;}
 
-    else{
-        discount=0.0;}
+        else if(orderTime[loop]>=1500 && orderTime[loop]<=1600){
+            discount[loop]=6;}
 
-    priceNew=priceOld-(priceOld*discount/100);
-    riderPayment=(priceNew*0.01)+(priceCOD*0.5);
+        else if(orderTime[loop]>=2300 && orderTime[loop]<=2400 || orderTime[loop]==0){
+            discount[loop]=8.5;}
+
+        else{
+            discount[loop]=0.0;}}
+
+    for(loop=0;loop<custTotal;loop++){
+        priceNew[loop]=priceOld[loop]-(priceOld[loop]*discount[loop]/100);
+        riderPayment[loop]=(priceNew[loop]*0.01)+(priceCOD[loop]*0.5);}
 
     printf("\n Name        : %s", riderName);
     printf("\n Rider ID    : %s", riderID);
@@ -54,7 +62,9 @@ int main(void){
 
     printf("\n\n Time  Distance Food Price COD Charge Price Disc %% New Price Pay to Rider");
     printf("\n ----- -------- ---------- ---------- ----- ------ --------- -------------");
-    printf("\n %-8.04d %-8d %-8.2f %-9.2f %-6.2f %-8.1f %-8.2f %.2f", orderTime, orderDistance, orderPrice, priceCOD, priceOld, discount, priceNew, riderPayment);
+
+    for(loop=0;loop<custTotal;loop++){
+        printf("\n %-8.04d %-8d %-8.2f %-9.2f %-6.2f %-8.1f %-8.2f %.2f", orderTime[loop], orderDistance[loop], orderPrice[loop], priceCOD[loop], priceOld[loop], discount[loop], priceNew[loop], riderPayment[loop]);}
 
     printf("\n\n Overall Information");
     printf("\n ===================");
