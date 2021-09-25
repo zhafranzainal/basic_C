@@ -28,6 +28,9 @@ int main(void){
     printf(" Enter food price                     : ");
     scanf(" %f", &orderPrice);
 
+    priceCOD=orderDistance*0.50;
+    priceOld=priceCOD+orderPrice;
+
     printf("\n Name        : %s", riderName);
     printf("\n Rider ID    : %s", riderID);
 
