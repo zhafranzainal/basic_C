@@ -54,6 +54,10 @@ int main(void){
         priceNew[loop]=priceOld[loop]-(priceOld[loop]*discount[loop]/100);
         riderPayment[loop]=(priceNew[loop]*0.01)+(priceCOD[loop]*0.5);}
 
+    for(loop=0;loop<custTotal;loop++){
+        totalPrice+=priceNew[loop];
+        totalPayment+=riderPayment[loop];}
+
     printf("\n Name        : %s", riderName);
     printf("\n Rider ID    : %s", riderID);
 
