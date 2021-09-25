@@ -3,6 +3,7 @@
 #define MAX 5
 
 //Function Declaration (Prototype)
+void read_order(int custTotal, int orderTime[], int orderDistance[], float orderPrice[]);
 
 int main(void){
 
@@ -21,19 +22,8 @@ int main(void){
     printf(" Enter rider ID                       : ");
     gets(riderID);
 
-    //Function Definition: read_order
-    for(loop=0;loop<custTotal;loop++){
-
-        printf("\n Customer #%d", loop+1);
-
-        printf("\n Enter pick up time (24hrs format)    : ");
-        scanf(" %d", &orderTime[loop]);
-
-        printf(" Enter distance                       : ");
-        scanf(" %d", &orderDistance[loop]);
-
-        printf(" Enter food price                     : ");
-        scanf(" %f", &orderPrice[loop]);}
+    //Function Calling: read_order
+    read_order(custTotal, orderTime, orderDistance, orderPrice);
 
     //Function Definition: calc_price
     for(loop=0;loop<custTotal;loop++){
@@ -85,3 +75,21 @@ int main(void){
 
 return 0;
 }
+
+//Function Definition: read_order
+void read_order(int custTotal, int orderTime[], int orderDistance[], float orderPrice[]){
+
+    int loop;
+
+    for(loop=0;loop<custTotal;loop++){
+
+        printf("\n Customer #%d", loop+1);
+
+        printf("\n Enter pick up time (24hrs format)    : ");
+        scanf(" %d", &orderTime[loop]);
+
+        printf(" Enter distance                       : ");
+        scanf(" %d", &orderDistance[loop]);
+
+        printf(" Enter food price                     : ");
+        scanf(" %f", &orderPrice[loop]);}}
