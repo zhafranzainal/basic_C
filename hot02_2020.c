@@ -31,6 +31,18 @@ int main(void){
     priceCOD=orderDistance*0.50;
     priceOld=priceCOD+orderPrice;
 
+    if(orderTime>=900 && orderTime<=1100){
+        discount=5;}
+
+    else if(orderTime>=1500 && orderTime<=1600){
+        discount=6;}
+
+    else if(orderTime>=2300 && orderTime<=2400 || orderTime==0){
+        discount=8.5;}
+
+    else{
+        discount=0.0;}
+
     printf("\n Name        : %s", riderName);
     printf("\n Rider ID    : %s", riderID);
 
