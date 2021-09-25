@@ -43,6 +43,9 @@ int main(void){
     else{
         discount=0.0;}
 
+    priceNew=priceOld-(priceOld*discount/100);
+    riderPayment=(priceNew*0.01)+(priceCOD*0.5);
+
     printf("\n Name        : %s", riderName);
     printf("\n Rider ID    : %s", riderID);
 
