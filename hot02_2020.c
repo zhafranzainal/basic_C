@@ -2,6 +2,8 @@
 
 #define MAX 5
 
+//Function Declaration (Prototype)
+
 int main(void){
 
     float orderPrice[MAX], priceCOD[MAX], priceOld[MAX], discount[MAX], priceNew[MAX], riderPayment[MAX], totalPrice, totalPayment;
@@ -19,6 +21,7 @@ int main(void){
     printf(" Enter rider ID                       : ");
     gets(riderID);
 
+    //Function Definition: read_order
     for(loop=0;loop<custTotal;loop++){
 
         printf("\n Customer #%d", loop+1);
@@ -32,6 +35,7 @@ int main(void){
         printf(" Enter food price                     : ");
         scanf(" %f", &orderPrice[loop]);}
 
+    //Function Definition: calc_price
     for(loop=0;loop<custTotal;loop++){
         priceCOD[loop]=orderDistance[loop]*0.50;
         priceOld[loop]=priceCOD[loop]+orderPrice[loop];}
@@ -58,6 +62,7 @@ int main(void){
         totalPrice+=priceNew[loop];
         totalPayment+=riderPayment[loop];}
 
+    //Function Definition: print_deliveryInfo
     printf("\n Name        : %s", riderName);
     printf("\n Rider ID    : %s", riderID);
 
