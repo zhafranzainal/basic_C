@@ -2,27 +2,33 @@
 
 int main(void){
 
+    float orderPrice, priceCOD, priceOld, discount, priceNew, riderPayment, totalPrice, totalPayment;
+    int custTotal, orderTime, orderDistance;
+    char riderName[50], riderID[10];
+
     printf(" How many customer to enter? ");
     scanf(" %d", &custTotal);
 
-    printf("\n\n Enter rider name                     : ");
+    fflush(stdin);
+
+    printf("\n Enter rider name                     : ");
     gets(riderName);
 
-    printf("\n Enter rider ID                       : ");
+    printf(" Enter rider ID                       : ");
     gets(riderID);
 
-    printf("\n\n Customer #1");
+    printf("\n Customer #1");
 
     printf("\n Enter pick up time (24hrs format)    : ");
     scanf(" %d", &orderTime);
 
-    printf("\n Enter distance                       : ");
+    printf(" Enter distance                       : ");
     scanf(" %d", &orderDistance);
 
-    printf("\n Enter food price                     : ");
+    printf(" Enter food price                     : ");
     scanf(" %f", &orderPrice);
 
-    printf("\n\n Name        : %s", riderName);
+    printf("\n Name        : %s", riderName);
     printf("\n Rider ID    : %s", riderID);
 
     printf("\n\n Delivery Information and Details");
@@ -30,7 +36,7 @@ int main(void){
 
     printf("\n\n Time  Distance Food Price COD Charge Price Disc %% New Price Pay to Rider");
     printf("\n ----- -------- ---------- ---------- ----- ------ --------- -------------");
-    printf("\n %04d     %d      %.2f      %.2f    %.2f   %.1f    %.2f       %.2f", orderTime, orderDistance, orderPrice, priceCOD, priceOld, discount, priceNew, riderPayment);
+    printf("\n %-8.04d %-8d %-8.2f %-9.2f %-6.2f %-8.1f %-8.2f %.2f", orderTime, orderDistance, orderPrice, priceCOD, priceOld, discount, priceNew, riderPayment);
 
     printf("\n\n Overall Information");
     printf("\n ===================");
