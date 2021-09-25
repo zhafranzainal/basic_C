@@ -4,6 +4,7 @@
 
 //Function Declaration (Prototype)
 void read_order(int custTotal, int orderTime[], int orderDistance[], float orderPrice[]);
+void calc_price(int custTotal, int orderDistance[MAX], float orderPrice[MAX], int orderTime[MAX], float priceCOD[], float priceOld[], float discount[], float priceNew[], float riderPayment[], float* totalPrice, float* totalPayment);
 
 int main(void){
 
@@ -25,32 +26,8 @@ int main(void){
     //Function Calling: read_order
     read_order(custTotal, orderTime, orderDistance, orderPrice);
 
-    //Function Definition: calc_price
-    for(loop=0;loop<custTotal;loop++){
-        priceCOD[loop]=orderDistance[loop]*0.50;
-        priceOld[loop]=priceCOD[loop]+orderPrice[loop];}
-
-    for(loop=0;loop<custTotal;loop++){
-
-        if(orderTime[loop]>=900 && orderTime[loop]<=1100){
-            discount[loop]=5;}
-
-        else if(orderTime[loop]>=1500 && orderTime[loop]<=1600){
-            discount[loop]=6;}
-
-        else if(orderTime[loop]>=2300 && orderTime[loop]<=2400 || orderTime[loop]==0){
-            discount[loop]=8.5;}
-
-        else{
-            discount[loop]=0.0;}}
-
-    for(loop=0;loop<custTotal;loop++){
-        priceNew[loop]=priceOld[loop]-(priceOld[loop]*discount[loop]/100);
-        riderPayment[loop]=(priceNew[loop]*0.01)+(priceCOD[loop]*0.5);}
-
-    for(loop=0;loop<custTotal;loop++){
-        totalPrice+=priceNew[loop];
-        totalPayment+=riderPayment[loop];}
+    //Function Calling: calc_price
+    calc_price(custTotal, orderDistance, orderPrice, orderTime, priceCOD, priceOld, discount, priceNew, riderPayment, &totalPrice, &totalPayment);
 
     //Function Definition: print_deliveryInfo
     printf("\n Name        : %s", riderName);
@@ -93,3 +70,34 @@ void read_order(int custTotal, int orderTime[], int orderDistance[], float order
 
         printf(" Enter food price                     : ");
         scanf(" %f", &orderPrice[loop]);}}
+
+//Function Definition: calc_price
+void calc_price(int custTotal, int orderDistance[MAX], float orderPrice[MAX], int orderTime[MAX], float priceCOD[], float priceOld[], float discount[], float priceNew[], float riderPayment[], float* totalPrice, float* totalPayment){
+
+    int loop;
+
+    for(loop=0;loop<custTotal;loop++){
+        priceCOD[loop]=orderDistance[loop]*0.50;
+        priceOld[loop]=priceCOD[loop]+orderPrice[loop];}
+
+    for(loop=0;loop<custTotal;loop++){
+
+        if(orderTime[loop]>=900 && orderTime[loop]<=1100){
+            discount[loop]=5;}
+
+        else if(orderTime[loop]>=1500 && orderTime[loop]<=1600){
+            discount[loop]=6;}
+
+        else if(orderTime[loop]>=2300 && orderTime[loop]<=2400 || orderTime[loop]==0){
+            discount[loop]=8.5;}
+
+        else{
+            discount[loop]=0.0;}}
+
+    for(loop=0;loop<custTotal;loop++){
+        priceNew[loop]=priceOld[loop]-(priceOld[loop]*discount[loop]/100);
+        riderPayment[loop]=(priceNew[loop]*0.01)+(priceCOD[loop]*0.5);}
+
+    for(loop=0;loop<custTotal;loop++){
+        *totalPrice+=priceNew[loop];
+        *totalPayment+=riderPayment[loop];}}
