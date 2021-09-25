@@ -5,6 +5,7 @@
 //Function Declaration (Prototype)
 void read_order(int custTotal, int orderTime[], int orderDistance[], float orderPrice[]);
 void calc_price(int custTotal, int orderDistance[MAX], float orderPrice[MAX], int orderTime[MAX], float priceCOD[], float priceOld[], float discount[], float priceNew[], float riderPayment[], float* totalPrice, float* totalPayment);
+void print_deliveryInfo(int custTotal, char riderName[50], char riderID[10], int orderTime[MAX], int orderDistance[MAX], float orderPrice[MAX], float priceCOD[MAX], float priceOld[MAX], float discount[MAX], float priceNew[MAX], float riderPayment[MAX], float totalPrice, float totalPayment);
 
 int main(void){
 
@@ -29,26 +30,8 @@ int main(void){
     //Function Calling: calc_price
     calc_price(custTotal, orderDistance, orderPrice, orderTime, priceCOD, priceOld, discount, priceNew, riderPayment, &totalPrice, &totalPayment);
 
-    //Function Definition: print_deliveryInfo
-    printf("\n Name        : %s", riderName);
-    printf("\n Rider ID    : %s", riderID);
-
-    printf("\n\n Delivery Information and Details");
-    printf("\n ================================");
-
-    printf("\n\n Time  Distance Food Price COD Charge Price Disc %% New Price Pay to Rider");
-    printf("\n ----- -------- ---------- ---------- ----- ------ --------- -------------");
-
-    for(loop=0;loop<custTotal;loop++){
-        printf("\n %-8.04d %-8d %-8.2f %-9.2f %-6.2f %-8.1f %-8.2f %.2f", orderTime[loop], orderDistance[loop], orderPrice[loop], priceCOD[loop], priceOld[loop], discount[loop], priceNew[loop], riderPayment[loop]);}
-
-    printf("\n\n Overall Information");
-    printf("\n ===================");
-    printf("\n Total New Price       : RM%.2f", totalPrice);
-    printf("\n Total Pay to Rider    : RM%.2f", totalPayment);
-    printf("\n Number of Bonus Point : %.0f", totalPrice);
-
-    printf("\n");
+    //Function Calling: print_deliveryInfo
+    print_deliveryInfo(custTotal, riderName, riderID, orderTime, orderDistance, orderPrice, priceCOD, priceOld, discount, priceNew, riderPayment, totalPrice, totalPayment);
 
 return 0;
 }
@@ -101,3 +84,28 @@ void calc_price(int custTotal, int orderDistance[MAX], float orderPrice[MAX], in
     for(loop=0;loop<custTotal;loop++){
         *totalPrice+=priceNew[loop];
         *totalPayment+=riderPayment[loop];}}
+
+//Function Definition: print_deliveryInfo
+void print_deliveryInfo(int custTotal, char riderName[50], char riderID[10], int orderTime[MAX], int orderDistance[MAX], float orderPrice[MAX], float priceCOD[MAX], float priceOld[MAX], float discount[MAX], float priceNew[MAX], float riderPayment[MAX], float totalPrice, float totalPayment){
+
+    int loop;
+
+    printf("\n Name        : %s", riderName);
+    printf("\n Rider ID    : %s", riderID);
+
+    printf("\n\n Delivery Information and Details");
+    printf("\n ================================");
+
+    printf("\n\n Time  Distance Food Price COD Charge Price Disc %% New Price Pay to Rider");
+    printf("\n ----- -------- ---------- ---------- ----- ------ --------- -------------");
+
+    for(loop=0;loop<custTotal;loop++){
+        printf("\n %-8.04d %-8d %-8.2f %-9.2f %-6.2f %-8.1f %-8.2f %.2f", orderTime[loop], orderDistance[loop], orderPrice[loop], priceCOD[loop], priceOld[loop], discount[loop], priceNew[loop], riderPayment[loop]);}
+
+    printf("\n\n Overall Information");
+    printf("\n ===================");
+    printf("\n Total New Price       : RM%.2f", totalPrice);
+    printf("\n Total Pay to Rider    : RM%.2f", totalPayment);
+    printf("\n Number of Bonus Point : %.0f", totalPrice);
+
+    printf("\n");}
