@@ -10,6 +10,7 @@ float read_summonAmount(void);
 int calc_dateDifference(Date dateSummon, Date dateCurrent);
 int countLeapYears(Date dateLeap);
 void calc_summonTotal(int summonLate, float summonAmount, float* summonDiscount, float* summonPenalty, float* summonTotal);
+void print_paymentInfo(char driverName[50], char driverID[20], char driverPlat[10], float summonTotal, float summonDiscount, float summonPenalty);
 
 int main(void){
 
@@ -52,18 +53,7 @@ int main(void){
     calc_summonTotal(summonLate, summonAmount, &summonDiscount, &summonPenalty, &summonTotal);
 
     //Function Definition: print_paymentInfo
-    printf("\n---------------------------\n");
-
-    printf("\nPayment Information");
-    printf("\n===================");
-    printf("\nName                      : %s", driverName);
-    printf("\nID No                     : %s", driverID);
-    printf("\nVehicle No                : %s", driverPlat);
-    printf("\nTotal Summon              : RM%.2f", summonTotal);
-    printf("\nDiscount                  : RM%.2f", summonDiscount);
-    printf("\nTotal amount of penalty   : RM%.2f", summonPenalty);
-
-    printf("\n");
+    print_paymentInfo(driverName, driverID, driverPlat, summonTotal, summonDiscount, summonPenalty);
 
 return 0;
 }
@@ -154,3 +144,19 @@ void calc_summonTotal(int summonLate, float summonAmount, float* summonDiscount,
         *summonPenalty=summonAmount*0.5;}
 
     *summonTotal=summonAmount+*summonPenalty-*summonDiscount;}
+
+//Function Definition: print_paymentInfo
+void print_paymentInfo(char driverName[50], char driverID[20], char driverPlat[10], float summonTotal, float summonDiscount, float summonPenalty){
+
+    printf("\n---------------------------\n");
+
+    printf("\nPayment Information");
+    printf("\n===================");
+    printf("\nName                      : %s", driverName);
+    printf("\nID No                     : %s", driverID);
+    printf("\nVehicle No                : %s", driverPlat);
+    printf("\nTotal Summon              : RM%.2f", summonTotal);
+    printf("\nDiscount                  : RM%.2f", summonDiscount);
+    printf("\nTotal amount of penalty   : RM%.2f", summonPenalty);
+
+    printf("\n");}
