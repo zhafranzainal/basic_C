@@ -28,6 +28,29 @@ int main(void){
     printf("\n\nNo of days late       : ");
     scanf(" %d", &summonLate);
 
+    summonDiscount=0;
+
+    if(summonLate<=5){
+        summonDiscount=summonAmount*0.1;
+        summonPenalty=0;}
+
+    else if(summonLate<=12){
+        summonPenalty=summonAmount*0.1;}
+
+    else if(summonLate<=19){
+        summonPenalty=summonAmount*0.2;}
+
+    else if(summonLate<=26){
+        summonPenalty=summonAmount*0.3;}
+
+    else if(summonLate<=33){
+        summonPenalty=summonAmount*0.4;}
+
+    else{
+        summonPenalty=summonAmount*0.5;}
+
+    summonTotal=summonAmount+summonPenalty-summonDiscount;
+
     printf("\n---------------------------\n");
 
     printf("\nPayment Information");
