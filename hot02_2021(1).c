@@ -2,27 +2,33 @@
 
 int main(void){
 
+    float summonAmount, summonTotal, summonDiscount, summonPenalty;
+    char driverName[50], driverID[20], driverPlat[10], dateSummon[20];
+    int summonLate;
+
     printf("Enter driver name     : ");
     gets(driverName);
 
-    printf("\nEnter ID no           : ");
+    printf("Enter ID no           : ");
     gets(driverID);
 
-    printf("\nEnter vehicle no      : ");
+    printf("Enter vehicle no      : ");
     gets(driverPlat);
 
-    printf("\nSummon amount (in RM) : ");
+    printf("Summon amount (in RM) : ");
     scanf(" %f", &summonAmount);
 
-    printf("\nDate of summon issued : ");
+    fflush(stdin);
+
+    printf("Date of summon issued : ");
     gets(dateSummon);
 
-    printf("\n\nThe summon needs to be paid within 5 days from the date of summon issued.");
+    printf("\nThe summon needs to be paid within 5 days from the date of summon issued.");
 
     printf("\n\nNo of days late       : ");
     scanf(" %d", &summonLate);
 
-    printf("\n\n---------------------------\n");
+    printf("\n---------------------------\n");
 
     printf("\nPayment Information");
     printf("\n===================");
