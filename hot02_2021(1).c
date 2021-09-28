@@ -24,6 +24,7 @@ int main(void){
     printf("Enter vehicle no      : ");
     gets(driverPlat);
 
+    //Function Definition: read_summonAmount
     printf("Summon amount (in RM) : ");
     scanf(" %f", &summonAmount);
 
@@ -48,6 +49,7 @@ int main(void){
 
     printf("\n\nNo of days late is %d\n", summonLate);
 
+    //Function Definition: calc_summonTotal
     summonDiscount=0;
 
     if(summonLate<=5){
@@ -71,6 +73,7 @@ int main(void){
 
     summonTotal=summonAmount+summonPenalty-summonDiscount;
 
+    //Function Definition: print_paymentInfo
     printf("\n---------------------------\n");
 
     printf("\nPayment Information");
