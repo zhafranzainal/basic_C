@@ -9,6 +9,7 @@ typedef struct Date{
 float read_summonAmount(void);
 int calc_dateDifference(Date dateSummon, Date dateCurrent);
 int countLeapYears(Date dateLeap);
+void calc_summonTotal(int summonLate, float summonAmount, float* summonDiscount, float* summonPenalty, float* summonTotal);
 
 int main(void){
 
@@ -47,29 +48,8 @@ int main(void){
 
     printf("\n\nNo of days late is %d\n", summonLate);
 
-    //Function Definition: calc_summonTotal
-    summonDiscount=0;
-
-    if(summonLate<=5){
-        summonDiscount=summonAmount*0.1;
-        summonPenalty=0;}
-
-    else if(summonLate<=12){
-        summonPenalty=summonAmount*0.1;}
-
-    else if(summonLate<=19){
-        summonPenalty=summonAmount*0.2;}
-
-    else if(summonLate<=26){
-        summonPenalty=summonAmount*0.3;}
-
-    else if(summonLate<=33){
-        summonPenalty=summonAmount*0.4;}
-
-    else{
-        summonPenalty=summonAmount*0.5;}
-
-    summonTotal=summonAmount+summonPenalty-summonDiscount;
+    //Function Calling: calc_summonTotal
+    calc_summonTotal(summonLate, summonAmount, &summonDiscount, &summonPenalty, &summonTotal);
 
     //Function Definition: print_paymentInfo
     printf("\n---------------------------\n");
@@ -148,3 +128,29 @@ int countLeapYears(Date dateLeap){
 
     //A year is a leap year if it is a multiple of 4 or multiple of 400 and not a multiple of 100.
     return (yearLeap/4)+(yearLeap/400)-(yearLeap/100);}
+
+//Function Definition: calc_summonTotal
+void calc_summonTotal(int summonLate, float summonAmount, float* summonDiscount, float* summonPenalty, float* summonTotal){
+
+    *summonDiscount=0;
+
+    if(summonLate<=5){
+        *summonDiscount=summonAmount*0.1;
+        *summonPenalty=0;}
+
+    else if(summonLate<=12){
+        *summonPenalty=summonAmount*0.1;}
+
+    else if(summonLate<=19){
+        *summonPenalty=summonAmount*0.2;}
+
+    else if(summonLate<=26){
+        *summonPenalty=summonAmount*0.3;}
+
+    else if(summonLate<=33){
+        *summonPenalty=summonAmount*0.4;}
+
+    else{
+        *summonPenalty=summonAmount*0.5;}
+
+    *summonTotal=summonAmount+*summonPenalty-*summonDiscount;}
