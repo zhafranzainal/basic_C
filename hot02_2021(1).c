@@ -6,6 +6,7 @@ typedef struct Date{
     }Date;
 
 //Function Declaration (Prototype)
+float read_summonAmount(void);
 int calc_dateDifference(Date dateSummon, Date dateCurrent);
 int countLeapYears(Date dateLeap);
 
@@ -24,11 +25,8 @@ int main(void){
     printf("Enter vehicle no      : ");
     gets(driverPlat);
 
-    //Function Definition: read_summonAmount
-    printf("Summon amount (in RM) : ");
-    scanf(" %f", &summonAmount);
-
-    fflush(stdin);
+    //Function Calling: read_summonAmount
+    summonAmount=read_summonAmount();
 
     struct Date dateSummon;
 
@@ -89,6 +87,18 @@ int main(void){
 
 return 0;
 }
+
+//Function Definition: read_summonAmount
+float read_summonAmount(void){
+
+    float summonAmount;
+
+    printf("Summon amount (in RM) : ");
+    scanf(" %f", &summonAmount);
+
+    fflush(stdin);
+
+    return summonAmount;}
 
 //Function Definition: calc_dateDifference
 //This function returns number of days between two given dates
