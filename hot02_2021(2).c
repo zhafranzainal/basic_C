@@ -5,7 +5,7 @@
 int main(void){
 
     char memberName[50], memberNo[10], memberTeam[20];
-    float jumpAttempt[ATTEMPT], jumpAverage;
+    float jumpAttempt[ATTEMPT], jumpAverage, jumpSum=0;
     int loop, length=0;
 
     printf("Participant name  : ");
@@ -26,6 +26,11 @@ int main(void){
     for(loop=0;loop<ATTEMPT;loop++){
         if (jumpAttempt[loop]>jumpAttempt[length]){
             length=loop;}}
+
+    for(loop=0;loop<ATTEMPT;loop++){
+        jumpSum+=jumpAttempt[loop];}
+
+    jumpAverage=jumpSum/ATTEMPT;
 
     printf("\n---------- Result information ----------");
 
