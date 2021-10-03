@@ -6,7 +6,7 @@ int main(void){
 
     char memberName[50], memberNo[10], memberTeam[20];
     float jumpAttempt[ATTEMPT], jumpAverage;
-    int loop;
+    int loop, length=0;
 
     printf("Participant name  : ");
     gets(memberName);
@@ -23,6 +23,10 @@ int main(void){
         printf("        Attempt %d = ", loop+1);
         scanf(" %f", &jumpAttempt[loop]);}
 
+    for(loop=0;loop<ATTEMPT;loop++){
+        if (jumpAttempt[loop]>jumpAttempt[length]){
+            length=loop;}}
+
     printf("\n---------- Result information ----------");
 
     printf("\n\nParticipant Information");
@@ -35,7 +39,7 @@ int main(void){
     for(loop=0;loop<ATTEMPT;loop++){
         printf("\nAttempt %d = %.2f meter", loop+1, jumpAttempt[loop]);}
 
-    printf("\n\nLongest jump = %.2f meter", jumpAttempt);
+    printf("\n\nLongest jump = %.2f meter", jumpAttempt[length]);
     printf("\nAverage jump = %.2f meter", jumpAverage);
 
     printf("\n");
