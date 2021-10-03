@@ -5,6 +5,7 @@
 //Function Declaration (Prototype)
 void calc_jumpAttemptLongest(float jumpAttempt[ATTEMPT], int* length);
 void calc_jumpAverage(float jumpAttempt[ATTEMPT], float* jumpAverage);
+void print_resultInfo(char memberName[50], char memberNo[10], char memberTeam[20], float jumpAttempt[ATTEMPT], int length, float jumpAverage);
 
 int main(void){
 
@@ -34,23 +35,8 @@ int main(void){
     //Function Calling: calc_jumpAverage
     calc_jumpAverage(jumpAttempt, &jumpAverage);
 
-    //Function Definition: print_resultInfo
-    printf("\n---------- Result information ----------");
-
-    printf("\n\nParticipant Information");
-    printf("\nName  : %s", memberName);
-    printf("\nNo.   : %s", memberNo);
-    printf("\nTeam  : %s", memberTeam);
-
-    printf("\n\nJumping Information");
-
-    for(loop=0;loop<ATTEMPT;loop++){
-        printf("\nAttempt %d = %.2f meter", loop+1, jumpAttempt[loop]);}
-
-    printf("\n\nLongest jump = %.2f meter", jumpAttempt[length]);
-    printf("\nAverage jump = %.2f meter", jumpAverage);
-
-    printf("\n");
+    //Function Calling: print_resultInfo
+    print_resultInfo(memberName, memberNo, memberTeam, jumpAttempt, length, jumpAverage);
 
 return 0;
 }
@@ -74,3 +60,25 @@ void calc_jumpAverage(float jumpAttempt[ATTEMPT], float* jumpAverage){
         jumpSum+=jumpAttempt[loop];}
 
     *jumpAverage=jumpSum/ATTEMPT;}
+
+//Function Definition: print_resultInfo
+void print_resultInfo(char memberName[50], char memberNo[10], char memberTeam[20], float jumpAttempt[ATTEMPT], int length, float jumpAverage){
+
+    int loop;
+
+    printf("\n---------- Result information ----------");
+
+    printf("\n\nParticipant Information");
+    printf("\nName  : %s", memberName);
+    printf("\nNo.   : %s", memberNo);
+    printf("\nTeam  : %s", memberTeam);
+
+    printf("\n\nJumping Information");
+
+    for(loop=0;loop<ATTEMPT;loop++){
+        printf("\nAttempt %d = %.2f meter", loop+1, jumpAttempt[loop]);}
+
+    printf("\n\nLongest jump = %.2f meter", jumpAttempt[length]);
+    printf("\nAverage jump = %.2f meter", jumpAverage);
+
+    printf("\n");}
