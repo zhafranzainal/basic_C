@@ -2,20 +2,23 @@
 
 int main(void){
 
+    char memberName[50], memberNo[10], memberTeam[20];
+    float jumpAttempt, jumpAverage;
+
     printf("Participant name  : ");
     gets(memberName);
 
-    printf("\nParticipant no    : ");
+    printf("Participant no    : ");
     gets(memberNo);
 
-    printf("\nParticipant team  : ");
+    printf("Participant team  : ");
     gets(memberTeam);
 
-    printf("\n\nJumping information (in meter):-\n");
+    printf("\nJumping information (in meter):-\n");
     printf("        Attempt 1 = ");
     scanf(" %f", &jumpAttempt);
 
-    printf("\n\n---------- Result information ----------");
+    printf("\n---------- Result information ----------");
 
     printf("\n\nParticipant Information");
     printf("\nName  : %s", memberName);
