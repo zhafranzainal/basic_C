@@ -3,11 +3,11 @@
 #define ATTEMPT 5
 
 //Function Declaration (Prototype)
+void calc_jumpAttemptLongest(float jumpAttempt[ATTEMPT], int* length);
 
 int main(void){
 
     //Main Function - read participant info with jumping info
-
     char memberName[50], memberNo[10], memberTeam[20];
     float jumpAttempt[ATTEMPT], jumpAverage, jumpSum=0;
     int loop, length=0;
@@ -27,10 +27,8 @@ int main(void){
         printf("        Attempt %d = ", loop+1);
         scanf(" %f", &jumpAttempt[loop]);}
 
-    //Function Definition: calc_jumpAttemptLongest
-    for(loop=0;loop<ATTEMPT;loop++){
-        if (jumpAttempt[loop]>jumpAttempt[length]){
-            length=loop;}}
+    //Function Calling: calc_jumpAttemptLongest
+    calc_jumpAttemptLongest(jumpAttempt, &length);
 
     //Function Definition: calc_jumpAverage
     for(loop=0;loop<ATTEMPT;loop++){
@@ -58,3 +56,12 @@ int main(void){
 
 return 0;
 }
+
+//Function Definition: calc_jumpAttemptLongest
+void calc_jumpAttemptLongest(float jumpAttempt[ATTEMPT], int* length){
+
+    int loop;
+
+    for(loop=0;loop<ATTEMPT;loop++){
+        if (jumpAttempt[loop]>jumpAttempt[*length]){
+            *length=loop;}}}
