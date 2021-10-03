@@ -3,8 +3,8 @@
 #define ATTEMPT 5
 
 //Function Declaration (Prototype)
-void calc_jumpAttemptLongest(float jumpAttempt[ATTEMPT], int* length);
-void calc_jumpAverage(float jumpAttempt[ATTEMPT], float* jumpAverage);
+int calc_jumpAttemptLongest(float jumpAttempt[ATTEMPT]);
+float calc_jumpAverage(float jumpAttempt[ATTEMPT]);
 void print_resultInfo(char memberName[50], char memberNo[10], char memberTeam[20], float jumpAttempt[ATTEMPT], int length, float jumpAverage);
 
 int main(void){
@@ -12,7 +12,7 @@ int main(void){
     //Main Function - read participant info with jumping info
     char memberName[50], memberNo[10], memberTeam[20];
     float jumpAttempt[ATTEMPT], jumpAverage;
-    int loop, length=0;
+    int loop, length;
 
     printf("Participant name  : ");
     gets(memberName);
@@ -30,10 +30,10 @@ int main(void){
         scanf(" %f", &jumpAttempt[loop]);}
 
     //Function Calling: calc_jumpAttemptLongest
-    calc_jumpAttemptLongest(jumpAttempt, &length);
+    length=calc_jumpAttemptLongest(jumpAttempt);
 
     //Function Calling: calc_jumpAverage
-    calc_jumpAverage(jumpAttempt, &jumpAverage);
+    jumpAverage=calc_jumpAverage(jumpAttempt);
 
     //Function Calling: print_resultInfo
     print_resultInfo(memberName, memberNo, memberTeam, jumpAttempt, length, jumpAverage);
@@ -42,24 +42,28 @@ return 0;
 }
 
 //Function Definition: calc_jumpAttemptLongest
-void calc_jumpAttemptLongest(float jumpAttempt[ATTEMPT], int* length){
+int calc_jumpAttemptLongest(float jumpAttempt[ATTEMPT]){
 
-    int loop;
+    int loop, length=0;
 
     for(loop=0;loop<ATTEMPT;loop++){
-        if (jumpAttempt[loop]>jumpAttempt[*length]){
-            *length=loop;}}}
+        if (jumpAttempt[loop]>jumpAttempt[length]){
+            length=loop;}}
+
+    return length;}
 
 //Function Definition: calc_jumpAverage
-void calc_jumpAverage(float jumpAttempt[ATTEMPT], float* jumpAverage){
+float calc_jumpAverage(float jumpAttempt[ATTEMPT]){
 
     int loop;
-    float jumpSum=0;
+    float jumpSum=0, jumpAverage;
 
     for(loop=0;loop<ATTEMPT;loop++){
         jumpSum+=jumpAttempt[loop];}
 
-    *jumpAverage=jumpSum/ATTEMPT;}
+    jumpAverage=jumpSum/ATTEMPT;
+
+    return jumpAverage;}
 
 //Function Definition: print_resultInfo
 void print_resultInfo(char memberName[50], char memberNo[10], char memberTeam[20], float jumpAttempt[ATTEMPT], int length, float jumpAverage){
